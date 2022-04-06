@@ -1,0 +1,14 @@
+import smtplib
+from email.message import EmailMessage
+
+msg = EmailMessage()
+msg.set_content('E-mail entregue!!!')
+
+msg['Subject'] = 'Subject'
+msg['From'] = "email_origem"
+msg['To'] = "email_destino"
+
+server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+server.login("email_origem", "senha")
+server.send_message(msg)
+server.quit()
